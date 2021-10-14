@@ -106,8 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 FloatingActionButton(
                   heroTag: Text('${widget.title} #2'),
                   onPressed: () {
-                    // BlocProvider.of<CounterCubit>(context).increment();
-                    context.bloc<CounterCubit>().increment();
+                    BlocProvider.of<CounterCubit>(context).increment();
+                    // context.bloc<CounterCubit>().increment();
                   },
                   tooltip: 'Increment',
                   child: Icon(Icons.add),
