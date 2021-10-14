@@ -19,6 +19,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: widget.color,
         title: Text(widget.title),
       ),
       body: Center(
@@ -76,6 +77,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title}'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
@@ -85,6 +87,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   child: Icon(Icons.remove),
                 ),
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title} #2'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).increment();

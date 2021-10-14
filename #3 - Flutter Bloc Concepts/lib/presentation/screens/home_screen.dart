@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: widget.color,
         title: Text(widget.title),
       ),
       body: Center(
@@ -76,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title}'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
@@ -85,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Icon(Icons.remove),
                 ),
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title} #2'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).increment();
@@ -99,19 +102,25 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 24,
             ),
             MaterialButton(
-              color: widget.color,
+              color: Colors.redAccent,
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                          value: BlocProvider.of<CounterCubit>(context),
-                          child: SecondScreen(
-                            title: 'Second Screen',
-                            color: Colors.redAccent,
-                          ),
-                        )));
+                Navigator.of(context).pushNamed("/second");
               },
               child: Text(
                 'Go to Second Screen',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            MaterialButton(
+              color: Colors.greenAccent,
+              onPressed: () {
+                Navigator.of(context).pushNamed("/third");
+              },
+              child: Text(
+                'Go to third Screen',
                 style: TextStyle(color: Colors.white),
               ),
             )

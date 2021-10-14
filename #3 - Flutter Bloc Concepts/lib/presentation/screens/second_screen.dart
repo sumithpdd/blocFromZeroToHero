@@ -17,6 +17,7 @@ class _SecondScreenState extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: widget.color,
         title: Text(widget.title),
       ),
       body: Center(
@@ -74,6 +75,7 @@ class _SecondScreenState extends State<SecondScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title}'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
@@ -83,6 +85,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   child: Icon(Icons.remove),
                 ),
                 FloatingActionButton(
+                  backgroundColor: widget.color,
                   heroTag: Text('${widget.title} #2'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).increment();
@@ -97,9 +100,11 @@ class _SecondScreenState extends State<SecondScreen> {
               height: 24,
             ),
             MaterialButton(
-              color: widget.color,
-              onPressed: () {},
-              child: Text('go to second screen'),
+              color: Colors.greenAccent,
+              onPressed: () {
+                Navigator.of(context).pushNamed("/third");
+              },
+              child: Text('go to third screen'),
             )
           ],
         ),
